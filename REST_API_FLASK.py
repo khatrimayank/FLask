@@ -1,4 +1,4 @@
-from flask import Flask , jsonify , request
+from flask import Flask, request, jsonify
 
 app=Flask(__name__)
 
@@ -34,7 +34,7 @@ book_list=[
             }
 ]
 
-@app('/Books',methods=['GET','POST'])
+@app.route('/Books',methods = ['GET','POST'])
 
 def book():
 	if request.method=='GET':
@@ -51,9 +51,9 @@ def book():
 		new_id=book_list[-1]['id']+1
 
 	new_book_obj={
-	              'id':new_id
-	              'author':new_author
-	              'language':new_language
+	              'id':new_id,
+	              'author':new_author,
+	              'language':new_language,
 	              'title':new_title
 	              }
 
